@@ -1,0 +1,11 @@
+version: '3'
+services:
+ ubuntu2004:
+  build: ./
+  tty: true
+  container_name: ubuntu2004
+  working_dir: /root
+  volumes:
+   - ./work:/root/work
+  ports:
+   - "80:80"

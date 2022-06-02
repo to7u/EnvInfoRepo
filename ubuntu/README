@@ -1,0 +1,9 @@
+# MEMO
+#vagrantのプラグインを使えば簡単にdockerを導入できる
+#プラグイン
+vagrant plugin install vagrant-vbguest
+vagrant plugin install vagrant-docker-compose
+
+#Vagrantfile記述
+config.vm.provision :docker, run: 'always'
+config.vm.provision :docker_compose

@@ -1,0 +1,7 @@
+■Huck the box
+
+アクセス手順
+・openvpn
+sudo openvpn starting_point_USERNAME.ovpn
+
+

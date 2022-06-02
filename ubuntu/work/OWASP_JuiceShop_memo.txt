@@ -1,0 +1,5 @@
+$ docker pull bkimminich/juice-shop
+# pullしたimageから名前(juice-shop)を付けてコンテナを作成
+$ docker run -d -p 3000:3000 --name juice-shop bkimminich/juice-shop
+$ docker stop <NAME>
+$ docker start <NAME>
