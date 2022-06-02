@@ -1,0 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+  config.vm.define "ubuntu-01" do |server|
+    server.vm.box = "generic/ubuntu2004"
+    server.vm.hostname = "ubuntu-01"
+    server.vm.network "private_network", ip: "192.168.56.111"
+    server.vm.synced_folder "./work", "/vagrant", disabled: true
+    server.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "512"
+    end
+  end
+  config.vm.define "ubuntu-02" do |server|
+    server.vm.box = "generic/ubuntu2004"
+    server.vm.hostname = "ubuntu-02"
+    server.vm.network "private_network", ip: "192.168.56.112"
+    server.vm.synced_folder "./work", "/vagrant", disabled: true
+    server.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "512"
+    end
+  end
+end
