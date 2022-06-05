@@ -1,0 +1,20 @@
+# cygwin download
+https://cygwin.com/install.html
+
+Archive：bsdtar, unzip, zip, xz, bzip2
+Devel：git, git-completion, libiconv, subversion, gcc, gcc-g++, make
+Editors：vim, emacs
+Net：connect-proxy, curl, inetutils, lftp, netcat, openssh, tftp, whois
+Shells：zsh, pdksh, tcsh
+System：procps, psmisc
+Tcl：expect
+Utils：bc, cpio, rpm, ncurses, screen, util-linux
+Web：wget
+
+# apt-get
+$ wget https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
+$ chmod 755 apt-get
+$ cp apt-get /usr/loacal/bin/
+
+# command
+apt-cyg install <command>
