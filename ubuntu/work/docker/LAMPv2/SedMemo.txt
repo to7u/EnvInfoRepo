@@ -1,0 +1,3 @@
+●改行コード変換
+
+sed -i 's/\r//g' <target file>

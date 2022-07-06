@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - web
+    environment:
+      DOMAINS: 'dev.com -> http://web'
+      STAGE: 'local'
+  web:
+    build: ./php
+    volumes:
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+    # - ./html:/var/www/html
+      - ./php/work:/root/work
+    # https-portal導入に伴いコメントアウト
+    # ports:
+    #   -  8080:80
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    volumes:
+    # 保管場所をホームディレクトリに指定(vagrant共有ディレクトリを避ける)
+      - ~/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+    links:
+      - db
+    ports:
+      - 8000:80
+    volumes:
+      - /sessons
