@@ -1,0 +1,25 @@
+●Badstore
+docker run -d -p 8080:80 --name badstore jvhoof/badstore-docker
+
+●JuiceShop
+docker run -d -p 3000:3000 --name juice-shop bkimminich/juice-shop
+
+●BWAPP
+docker run -d -p 8080:80 --name bwapp raesene/bwapp
+
+http://<server ip : port>/install.php
+画面上ボタン押下、DBへの設定投入が行われる
+
+ID:bee
+PASS:bug
+
+●DVWA
+docker run -d -it -p 80:80 --name dvwa vulnerables/web-dvwa
+
+ID:adminn
+PASS:passwd
+
+●起動/停止/接続コマンド
+docker stop <container name>
+docker start <container name>
+docker exec -it <container name> bash
